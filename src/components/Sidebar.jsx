@@ -16,7 +16,7 @@ const Sidebar = () => {
   }, []);
 
   return (
-    <div className="d-flex flex-column flex-shrink-0 bg-body-tertiary" style={{ width: '2.5rem' }}>
+    <div className="d-flex flex-column flex-shrink-0 bg-body-tertiary" style={{ width: '2.8rem', marginRight: '20px' }}>
       <a
         href="/"
         className="d-block p-3 link-body-emphasis text-decoration-none"
