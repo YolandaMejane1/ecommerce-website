@@ -20,7 +20,7 @@ const Sidebar = () => {
       <a
         href="/"
         className="d-block p-3 link-body-emphasis text-decoration-none"
-        title="Icon"
+        title="Home"
         data-bs-toggle="tooltip"
         data-bs-placement="right"
       >
@@ -31,7 +31,7 @@ const Sidebar = () => {
           <a
             href="#"
             className="nav-link py-3 border-bottom rounded-0"
-            title="App"
+            title=""
             data-bs-toggle="tooltip"
             data-bs-placement="right"
           >
@@ -42,7 +42,7 @@ const Sidebar = () => {
           <a
             href="#"
             className="nav-link py-3 border-bottom rounded-0"
-            title="Store"
+            title=""
             data-bs-toggle="tooltip"
             data-bs-placement="right"
           >
@@ -53,7 +53,7 @@ const Sidebar = () => {
           <a
             href="#"
             className="nav-link py-3 border-bottom rounded-0"
-            title="Bag"
+            title=""
             data-bs-toggle="tooltip"
             data-bs-placement="right"
           >
