@@ -1,70 +1,15 @@
-# Getting Started with Create React App
+E-Commerce Website Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to my E-Commerce Website Project! I built this as part of my capstone challenge to bring together everything I’ve learned about React, Redux, and frontend development. The goal was to create a fully functional e-commerce website that looks and feels like a real online store. I followed a design from a Figma file and worked to make the experience as smooth and engaging as possible.
 
-## Available Scripts
+On the home page, you’ll find a collapsible menu sidebar where users can navigate the site. There’s also a search bar to help users quickly find products they’re looking for. The main section displays a list of products, each with an image, name, price, and an "Add to Cart" button. A cart summary on the side gives users a quick glance at what’s already in their cart without leaving the page.
 
-In the project directory, you can run:
+When you click on a product, you’re taken to the product page. Here, I’ve included more detailed information about the product, like its name, price, category, and a description. You can still add the product to your cart from here if you like what you see.
 
-### `npm start`
+The cart page is where users can see everything they’ve added so far. I’ve added functionality to adjust the quantity of each item and automatically calculate the total cost. It’s simple and keeps users informed about their shopping.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The checkout page is where users can fill out their shipping and payment information. I’ve built forms to make this easy, and there’s also a final summary of the order so users can review everything before confirming. Once the order is placed, a success page appears to let users know their purchase was completed.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To build this project, I used React for creating the components and interactions. Redux helped manage the state, especially for the cart functionality, and React Router made navigating between pages seamless. I styled everything using CSS to match the design and make it look polished.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Overall, this project was a lot of fun to build. It brings together so many different parts of frontend development into one cohesive application.
