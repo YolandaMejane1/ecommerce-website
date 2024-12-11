@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { AiFillStar } from 'react-icons/ai'; 
 import { updateQuantity } from '../redux/cart/cartSlice';
 import Sidebar from '../components/Sidebar';  
 import DashboardBag from '../components/dashboardBag';  
@@ -14,6 +15,16 @@ const Bag = () => {
 
   const handleDecrease = (id) => {
     dispatch(updateQuantity({ id, quantity: -1 }));
+  };
+
+  const renderStars = (rating) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      stars.push(
+        <AiFillStar key={i} color={i <= Math.floor(rating) ? 'green' : '#ddd'} />
+      );
+    }
+    return stars;
   };
 
   return (
@@ -32,9 +43,14 @@ const Bag = () => {
                   alt={item.name} 
                   style={{ width: '150px', height: 'auto', objectFit: 'cover', borderRadius: '8px', marginRight: '20px' }} 
                 />
+                
                 <div style={{ flex: 1 }}>
                   <h3>{item.name}</h3>
                   <p>{item.description}</p>
+                  <p style={{ fontStyle: 'italic', color: '#555', marginBottom: '5px' }}>{item.information}</p> 
+                  <div style={{ display: 'flex', gap: '5px', marginBottom: '5px' }}>
+                    {renderStars(item.rating)}
+                  </div>
                   <span>${item.price}</span>
                   <br />
                   <div className="d-flex align-items-center">
