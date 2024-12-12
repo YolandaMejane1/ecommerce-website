@@ -24,16 +24,16 @@ const Bag = () => {
     const emptyStars = 5 - fullStars - halfStars;
 
     for (let i = 1; i <= fullStars; i++) {
-      stars.push(<AiFillStar key={`full-${i}`} color="green" />);
+      stars.push(<AiFillStar key={`full-${i}`} color="#1b805d" />);
     }
     if (halfStars) {
       stars.push(
-        <AiFillStar key="half" color="green" style={{ clipPath: 'inset(0 50% 0 0)' }} />
+        <AiFillStar key="half" color="#1b805d" style={{ clipPath: 'inset(0 50% 0 0)' }} />
       );
-      stars.push(<AiOutlineStar key="half-outline" color="green" />);
+      stars.push(<AiOutlineStar key="half-outline" color="#1b805d" />);
     }
     for (let i = 1; i <= emptyStars; i++) {
-      stars.push(<AiOutlineStar key={`empty-${i}`} color="green" />);
+      stars.push(<AiOutlineStar key={`empty-${i}`} color="#1b805d" />);
     }
 
     return stars.slice(0, 5);
@@ -77,7 +77,7 @@ const Bag = () => {
                   </p>
                   <div style={{ display: 'flex', gap: '5px', marginBottom: '5px' }}>
                     {renderStars(item.rating)}
-                    <span style={{ color: 'green', marginLeft: 'px', fontSize: '12px' }}>
+                    <span style={{ color: '#1b805d', marginLeft: 'px', fontSize: '12px' }}>
                       {item.rating} / 5
                     </span>
                   </div>

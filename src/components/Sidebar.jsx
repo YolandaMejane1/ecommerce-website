@@ -38,7 +38,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="d-flex flex-column flex-shrink-0 bg-body-tertiary" style={{ width: '2.8rem', marginRight: '20px', height: '100vh' }}>
+    <div className="d-flex flex-column flex-shrink-0 bg-body-tertiary" style={{ width: '2.8rem', marginRight: '20px', height: '' }}>
       <div
         className="d-block p-3 link-body-emphasis text-decoration-none"
         data-bs-toggle="tooltip"

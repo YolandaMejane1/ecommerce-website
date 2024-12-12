@@ -1,13 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
-import products from '../../data/products';
+import { createSlice } from "@reduxjs/toolkit";
+import products from "../../data/products";
 
 const initialState = {
-  items: products,
+  allItems: products,
   filteredItems: products,
 };
 
 const productSlice = createSlice({
-  name: 'product',
+  name: "product",
   initialState,
   reducers: {
     setFilteredProducts: (state, action) => {

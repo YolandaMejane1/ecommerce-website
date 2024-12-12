@@ -30,7 +30,7 @@ const ProductCard = ({ product, addToCart }) => {
         <h6 className="card-title" style={{ fontSize: "18px", fontWeight: "500" }}>
           {product.name}
         </h6>
-        <p className="card-text" style={{ fontSize: "12px" }}>
+        <p className="card-text" style={{ fontSize: "12px", color: '#60695c' }}>
           {product.description}
         </p>
         <div className="d-flex justify-content-between align-items-center">

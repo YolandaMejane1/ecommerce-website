@@ -21,16 +21,16 @@ const ItemView = () => {
     const emptyStars = 5 - fullStars - halfStars;
 
     for (let i = 1; i <= fullStars; i++) {
-      stars.push(<AiFillStar key={`full-${i}`} color="green" />);
+      stars.push(<AiFillStar key={`full-${i}`} color="#1b805d" />);
     }
     if (halfStars) {
       stars.push(
-        <AiFillStar key="half" color="green" style={{ clipPath: 'inset(0 50% 0 0)' }} />
+        <AiFillStar key="half" color="#1b805d" style={{ clipPath: 'inset(0 50% 0 0)' }} />
       );
-      stars.push(<AiOutlineStar key="half-outline" color="green" />);
+      stars.push(<AiOutlineStar key="half-outline" color="#1b805d" />);
     }
     for (let i = 1; i <= emptyStars; i++) {
-      stars.push(<AiOutlineStar key={`empty-${i}`} color="green" />);
+      stars.push(<AiOutlineStar key={`empty-${i}`} color="#1b805d" />);
     }
 
     return stars.slice(0, 5);
@@ -89,7 +89,7 @@ const ItemView = () => {
                 <div className="col-md-8">
                   <div className="d-flex flex-column">
                     <h2>{product.name}</h2>
-                    <p>{product.description}</p>
+                    <p className="card-text" style={{ color: "#60695c", fontWeight: '600' }}>{product.description}</p>
                     <div className="d-flex" style={{ marginTop: "10px" }}>
                       <div className="d-flex">
                         {renderStars(product.rating)}

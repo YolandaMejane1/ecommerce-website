@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaCcMastercard, FaCcVisa } from 'react-icons/fa';
 import { IoLockClosed } from 'react-icons/io5';
 import addPaymentImage from '../assets/CTA.png';
+import cardImage from '../assets/Name=card.png';
+import { FaCalendarAlt } from 'react-icons/fa';
 
 const AddPayment = () => {
   const navigate = useNavigate();
@@ -30,22 +31,36 @@ const AddPayment = () => {
   return (
     <div className="d-flex justify-content-center align-items-center min-vh-100 p-4">
       <div className="p-4 bg-light shadow-sm rounded-3" style={{ width: '100%', maxWidth: '500px' }}>
-        <h2 className="text-center mb-4 text-dark fw-medium">SELECT A CARD</h2>
-
-        <div className="d-flex flex-column align-items-center w-100 mb-4">
+        <h2 className="text-start mb-4 text-dark fw-small">SELECT A CARD</h2>
+        <div className="d-flex flex-column align-items-start w-100 mb-4">
           <div className="d-flex align-items-center mb-2">
-            <FaCcMastercard className="w-8 h-8 mr-2 text-warning" />
+            <img
+              src={cardImage}
+              alt="MasterCard"
+              className="w-8 h-8 mr-2"
+              style={{
+                filter: 'grayscale(100%)',
+                opacity: '0.5',
+                marginRight: '10px',
+              }}
+            />
             <span className="text-muted">MasterCard ending in 4742</span>
           </div>
-          <br />
           <div className="d-flex align-items-center">
-            <FaCcVisa className="w-8 h-8 mr-2 text-primary" />
+            <img
+              src={cardImage}
+              alt="VISA"
+              className="w-8 h-8 mr-2"
+              style={{
+                filter: 'grayscale(100%)',
+                opacity: '0.5',
+                marginRight: '10px',
+              }}
+            />
             <span className="text-muted">VISA Debit ending in 2894</span>
           </div>
         </div>
-
-        <h2 className="text-center mb-4 text-dark fw-medium">ADD A NEW CARD</h2>
-
+        <h2 className="text-start mb-4 text-dark fw-medium">ADD A NEW CARD</h2>
         <form onSubmit={handleSubmit} className="w-100">
           <div className="mb-3">
             <label className="form-label text-muted" htmlFor="cardholderName">Cardholder Name</label>
@@ -60,34 +75,46 @@ const AddPayment = () => {
               required
             />
           </div>
-
           <div className="mb-3">
             <label className="form-label text-muted" htmlFor="cardNumber">Card Number</label>
-            <input
-              type="text"
-              id="cardNumber"
-              name="cardNumber"
-              value={cardDetails.cardNumber}
-              onChange={handleChange}
-              className="form-control form-control-sm text-center"
-              placeholder="5126-5987-2214-7621"
-              required
-            />
+            <div className="position-relative">
+              <input
+                type="text"
+                id="cardNumber"
+                name="cardNumber"
+                value={cardDetails.cardNumber}
+                onChange={handleChange}
+                className="form-control form-control-sm text-center"
+                placeholder="5126-5987-2214-7621"
+                required
+              />
+              <img
+                src={cardImage}
+                alt="Card"
+                className="position-absolute"
+                style={{ left: '10px', top: '50%', transform: 'translateY(-50%)', opacity: '0.5' }}
+              />
+            </div>
           </div>
-
           <div className="d-flex justify-content-between mb-3">
             <div className="w-48">
               <label className="form-label text-muted" htmlFor="expiryDate">Expiry Date</label>
-              <input
-                type="text"
-                id="expiryDate"
-                name="expiryDate"
-                value={cardDetails.expiryDate}
-                onChange={handleChange}
-                className="form-control form-control-sm text-center"
-                placeholder="MM/YYYY"
-                required
-              />
+              <div className="position-relative">
+                <input
+                  type="text"
+                  id="expiryDate"
+                  name="expiryDate"
+                  value={cardDetails.expiryDate}
+                  onChange={handleChange}
+                  className="form-control form-control-sm text-center"
+                  placeholder="MM/YYYY"
+                  required
+                />
+                <FaCalendarAlt
+                  className="position-absolute"
+                  style={{ left: '10px', top: '50%', transform: 'translateY(-50%)', opacity: '0.5' }}
+                />
+              </div>
             </div>
             <div className="w-48">
               <label className="form-label text-muted" htmlFor="cvv">CVV</label>
@@ -103,7 +130,6 @@ const AddPayment = () => {
               />
             </div>
           </div>
-
           <div className="d-flex align-items-center mb-4">
             <input
               type="checkbox"
@@ -111,11 +137,10 @@ const AddPayment = () => {
               name="saveAsDefault"
               checked={cardDetails.saveAsDefault}
               onChange={handleChange}
-              className="me-2"
+              className="me-2 peer"
             />
-            <label htmlFor="saveAsDefault" className="form-check-label text-muted">Save this as your default payment method</label>
+            <label htmlFor="saveAsDefault" className="form-check-label text-muted peer-checked:text-success">Save this as your default payment method</label>
           </div>
-
           <div className="d-flex justify-content-between mb-3">
             <button
               type="submit"
@@ -129,18 +154,18 @@ const AddPayment = () => {
             </button>
           </div>
           <div className="d-flex justify-content-between align-items-center mb-3">
-  <button
-    type="button"
-    onClick={() => navigate('/checkout')}
-    className="btn btn-sm w-48 border-0"
-  >
-    Back
-  </button>
-  <div className="d-flex align-items-center">
-    <IoLockClosed className="text-success" />
-    <span className="text-success ms-2">Secure Connection</span>
-  </div>
-</div>
+            <button
+              type="button"
+              onClick={() => navigate('/checkout')}
+              className="btn btn-sm w-48 border-0"
+            >
+              Back
+            </button>
+            <div className="d-flex align-items-center">
+              <IoLockClosed className="text-success" />
+              <span className="text-success ms-2">Secure Connection</span>
+            </div>
+          </div>
         </form>
       </div>
     </div>
