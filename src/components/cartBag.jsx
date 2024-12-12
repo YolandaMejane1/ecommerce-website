@@ -1,14 +1,16 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import bagIcon from "../assets/Button (1).png";
+import bagIcon from "../assets/Button (4).png";
 
-const Bag = () => {
-  const cart = useSelector((state) => state.cart.cart); 
+const CartBag = () => {
+  const cart = useSelector((state) => state.cart.cart);
   const navigate = useNavigate();
 
+  const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+
   const handleClick = () => {
-    navigate("/bag");
+    navigate("/checkout");
   };
 
   return (
@@ -26,8 +28,8 @@ const Bag = () => {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(70px, 1fr))", 
-          gap: "10px", 
+          gridTemplateColumns: "repeat(auto-fill, minmax(70px, 1fr))",
+          gap: "10px",
         }}
       >
         {cart.length === 0 ? (
@@ -49,6 +51,12 @@ const Bag = () => {
           ))
         )}
       </div>
+
+      <div className="d-flex justify-content-between mt-3">
+        <span><strong>Bag Total:</strong></span>
+        <span><strong>${totalPrice.toFixed(2)}</strong></span>
+      </div>
+
       <button
         className="w-100 mt-3 p-0 border-0"
         style={{
@@ -59,7 +67,7 @@ const Bag = () => {
         onClick={handleClick}
       >
         <img
-          src={bagIcon} 
+          src={bagIcon}
           alt="View Bag"
           style={{ width: "55%", height: "auto", borderRadius: "8px" }}
         />
@@ -68,4 +76,4 @@ const Bag = () => {
   );
 };
 
-export default Bag;
+export default CartBag;

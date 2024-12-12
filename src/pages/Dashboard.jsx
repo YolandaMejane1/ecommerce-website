@@ -7,11 +7,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { setFilteredProducts } from '../redux/products/productSlice';
 import { addToCart } from '../redux/cart/cartSlice';
 import SearchBar from "../components/SearchBar";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const filteredProducts = useSelector((state) => state.product.filteredItems);
   const cart = useSelector((state) => state.cart.cart); 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSearch = (query) => {
     if (!query) {

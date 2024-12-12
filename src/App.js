@@ -16,7 +16,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/item-view" element={<ItemView />} />
+          <Route path="/item/:id" element={<ItemView />} />
           <Route path="/bag" element={<Bag />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/add-payment" element={<AddPayment />} />

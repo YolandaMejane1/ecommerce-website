@@ -13,7 +13,10 @@ const products = [
     img: AppleWatchImage,
     description: 'Series 5 SE',
     rating: 4.5,
-    information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.',
+    fullDescription:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Mauris non tempor purus. Curabitur viverra augue ac ante pretium, nec pretium felis aliquam. Vestibulum auctor ultricies turpis, ac hendrerit libero tempor nec. In cursus ex id dui varius, nec ullamcorper leo vehicula. Etiam convallis velit ut mauris tincidunt, sed tincidunt ligula fermentum. Quisque id dolor ligula. Vivamus fringilla varius ligula, ac bibendum augue consectetur a.',
+    cartInformation: 'Lorem ipsum dolor sit amet. Sed quis ex et nisi sodales lacinia.',
   },
   {
     id: 2,
@@ -22,7 +25,10 @@ const products = [
     img: SonyHeadphonesImage,
     description: 'Light Grey',
     rating: 4.0,
-    information: 'Nulla facilisi morbi tempus iaculis urna id volutpat.',
+    information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.',
+    fullDescription:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Sed tristique dui ac erat facilisis, ac fringilla purus egestas. Fusce condimentum tempor justo non efficitur. Aliquam congue orci a bibendum vehicula. Vestibulum quis est eu odio dictum aliquet at nec nulla. Morbi a interdum purus. Curabitur lobortis nisl a neque tempus, a congue neque convallis.',
+    cartInformation: 'Sed sed mauris id purus tristique fermentum. Vestibulum sollicitudin velit in massa sodales.',
   },
   {
     id: 3,
@@ -31,7 +37,10 @@ const products = [
     img: Iphone11BlackImage,
     description: 'Serious Black',
     rating: 4.7,
-    information: 'Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt.',
+    information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.',
+    fullDescription:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Mauris et erat ut ligula pharetra suscipit. Phasellus bibendum magna eget sapien cursus, vel consectetur magna laoreet. Sed consectetur vulputate dui, eget cursus elit tincidunt sit amet. Curabitur sollicitudin erat sit amet odio volutpat, nec pharetra turpis euismod.',
+    cartInformation: 'Praesent tempor libero eu mi cursus, ac tristique metus fermentum.',
   },
   {
     id: 4,
@@ -40,7 +49,10 @@ const products = [
     img: Iphone11BlueImage,
     description: 'Subway Blue',
     rating: 4.6,
-    information: 'Maecenas pharetra convallis posuere morbi leo urna molestie at.',
+    information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.',
+    fullDescription:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Sed malesuada risus ut dui bibendum, vel feugiat turpis tempus. Nullam convallis arcu ac dolor maximus, at posuere elit volutpat. Cras laoreet nunc et egestas tincidunt. Etiam maximus ligula a est convallis tempus.',
+    cartInformation: 'Nullam ac risus sed purus consectetur accumsan. Nam ornare libero et sapien fringilla.',
   },
   {
     id: 5,
@@ -49,7 +61,10 @@ const products = [
     img: Iphone14RedImage,
     description: 'Product RED',
     rating: 4.3,
-    information: 'Sed lectus vestibulum mattis ullamcorper velit sed.',
+    information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.',
+    fullDescription:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Curabitur venenatis lectus in fermentum gravida. Phasellus sollicitudin feugiat ipsum, ac eleifend augue fermentum ac. In consectetur justo sit amet malesuada volutpat.',
+    cartInformation: 'Fusce et augue ultricies, tincidunt enim ac, volutpat mi.',
   },
   {
     id: 6,
@@ -58,7 +73,10 @@ const products = [
     img: Iphone13WhiteImage,
     description: 'Milky White',
     rating: 4.8,
-    information: 'Nisl tincidunt eget nullam non nisi est sit amet.',
+    information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.',
+    fullDescription:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nam euismod felis ut eros viverra, vel laoreet arcu gravida. Integer eget erat ac metus hendrerit luctus. Nam a felis non libero suscipit vehicula sit amet non odio. Sed vulputate eros ac nulla gravida.',
+    cartInformation: 'Nulla eget sapien id arcu pretium rhoncus. Vestibulum euismod nisi vel nisi gravida.',
   },
   {
     id: 7,
@@ -67,7 +85,10 @@ const products = [
     img: Iphone14RedImage,
     description: 'Product RED',
     rating: 4.9,
-    information: 'Consectetur adipiscing elit ut aliquam purus sit amet luctus venenatis.',
+    information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.',
+    fullDescription:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Quisque ut augue fringilla, mollis risus ac, tristique est. Integer ultricies, orci nec lobortis viverra, purus metus vestibulum sem, ut sodales ante risus ac libero.',
+    cartInformation: 'Mauris malesuada sapien ac nulla tincidunt, non lobortis sapien tempor.',
   },
   {
     id: 8,
@@ -76,7 +97,10 @@ const products = [
     img: Iphone14RedImage,
     description: 'Product RED',
     rating: 4.2,
-    information: 'Commodo viverra maecenas accumsan lacus vel facilisis.',
+    information: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.',
+    fullDescription:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Donec convallis, arcu sed tincidunt gravida, risus dui rutrum ligula, et laoreet risus velit ut nisi. Fusce lacinia sollicitudin quam, a facilisis eros tincidunt nec.',
+    cartInformation: 'Aliquam sit amet nulla vitae ante lobortis aliquet. Cras sollicitudin orci at quam accumsan.',
   },
 ];
 
