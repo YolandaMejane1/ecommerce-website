@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; //order summary componenent is used by the checkout page to list bag items
 import { useSelector } from 'react-redux';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 

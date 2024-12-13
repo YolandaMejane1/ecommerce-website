@@ -2,12 +2,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import bagIcon from "../assets/Button (4).png";
+import '../App.css';
 
-const CartBag = () => {
+const CartBag = () => { // this separate cartBag is made to accomodate button differences in side Bag
   const cart = useSelector((state) => state.cart.cart);
   const navigate = useNavigate();
 
-  const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0); //calculates total price of items
 
   const handleClick = () => {
     navigate("/checkout");
@@ -15,9 +16,9 @@ const CartBag = () => {
 
   return (
     <div
-      className="bg-light p-3 position-fixed top-0 end-0"
+    className="bg-light p-3 position-fixed top-0 end-0 cart-width"
       style={{
-        width: "300px",
+        width: "25%",
         height: "100vh",
         overflowY: "auto",
         boxShadow: "-2px 0 5px rgba(0, 0, 0, 0.5)",
@@ -30,6 +31,7 @@ const CartBag = () => {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(70px, 1fr))",
           gap: "10px",
+          width: "60%",
         }}
       >
         {cart.length === 0 ? (

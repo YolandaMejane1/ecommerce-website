@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
 import Bag from "../components/dashboardBag"; 
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; //this imports hooks that handle parameters and navigation
 import products from "../data/products";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cart/cartActions"; 
@@ -14,13 +14,13 @@ const ItemView = () => {
   const dispatch = useDispatch();
   const product = products.find((item) => item.id === parseInt(id));
 
-  const renderStars = (rating) => {
+  const renderStars = (rating) => { //function to display rating stars
     const stars = [];
     const fullStars = Math.floor(rating);
     const halfStars = rating % 1 >= 0.5 ? 1 : 0;
     const emptyStars = 5 - fullStars - halfStars;
 
-    for (let i = 1; i <= fullStars; i++) {
+    for (let i = 1; i <= fullStars; i++) { //function to display precise rating on individual stars 
       stars.push(<AiFillStar key={`full-${i}`} color="#1b805d" />);
     }
     if (halfStars) {
@@ -36,7 +36,7 @@ const ItemView = () => {
     return stars.slice(0, 5);
   };
 
-  const handleAddToBag = () => {
+  const handleAddToBag = () => { //function to add products to the cart
     dispatch(addToCart(product)); 
   };
 
@@ -94,7 +94,7 @@ const ItemView = () => {
                       <div className="d-flex">
                         {renderStars(product.rating)}
                       </div>
-                      <span style={{ marginLeft: "10px", color: 'green', fontSize: "0.8rem" }}>
+                      <span style={{ marginLeft: "10px", color: '#1b805d', fontSize: "0.8rem" }}>
                         {product.rating} / 5
                       </span>
                     </div>
@@ -125,7 +125,7 @@ const ItemView = () => {
                 <p>{product.fullDescription}</p>
               </div>
             </div>
-            <div className="d-none d-md-block" style={{ flexBasis: "5%" }}>
+            <div className="d-none d-md-block" style={{ flexBasis: "5%" }}> 
               <Bag />
             </div>
           </div>

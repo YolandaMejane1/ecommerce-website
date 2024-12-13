@@ -1,4 +1,3 @@
-
 export const setProducts = (products) => ({
     type: 'product/setProducts',
     payload: products,

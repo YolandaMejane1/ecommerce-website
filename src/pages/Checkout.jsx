@@ -1,8 +1,8 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux"; //this manages the state and dispatch actions
 import { FaCcMastercard, FaGift } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { updateQuantity } from "../redux/cart/cartSlice";
+import { updateQuantity } from "../redux/cart/cartSlice"; //function to help with updating the cart quantity
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import buttonImage from "../assets/Button (5).png";
 
@@ -11,7 +11,7 @@ const Checkout = () => {
   const dispatch = useDispatch();
 
   const calculateTotal = () =>
-    cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+    cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2); //this function calculutes the total price for cart
 
   const handleIncrease = (id) => {
     dispatch(updateQuantity({ id, quantity: 1 }));
@@ -27,7 +27,7 @@ const Checkout = () => {
     const halfStars = rating % 1 >= 0.5 ? 1 : 0;
     const emptyStars = 5 - fullStars - halfStars;
 
-    for (let i = 1; i <= fullStars; i++) {
+    for (let i = 1; i <= fullStars; i++) { //logic and loops for filling up the rating stars
       stars.push(<AiFillStar key={`full-${i}`} color="#1b805d" />);
     }
     if (halfStars) {
@@ -50,6 +50,7 @@ const Checkout = () => {
           display: "grid",
           gridTemplateColumns: "3fr 1fr",
           gap: "20px",
+          width: "100%",
         }}
       >
         <div style={{ padding: "20px" }}>
@@ -59,6 +60,7 @@ const Checkout = () => {
               position: "relative",
               display: "flex",
               flexDirection: "column",
+              width: "100%",
             }}
           >
             <h3>Shipping Address</h3>
@@ -66,11 +68,11 @@ const Checkout = () => {
             <p>123 Place Grond Street</p>
             <p>Vermont, California</p>
             <p>United States of America</p>
-            <Link to="/add-address">
+            <Link to="/add-address"> 
               <button
                 style={{
                   position: "absolute",
-                  bottom: "20px",
+                  bottom: "-10px",
                   right: "30px",
                   border: "1px solid black",
                   borderRadius: "10px",
@@ -102,11 +104,11 @@ const Checkout = () => {
               <input type="checkbox" checked readOnly /> Billing address same as
               Shipping Address
             </p>
-            <Link to="/add-payment">
+            <Link to="/add-payment">  
               <button
                 style={{
                   position: "absolute",
-                  bottom: "20px",
+                  bottom: "-10px",
                   right: "30px",
                   border: "1px solid black",
                   borderRadius: "10px",
@@ -147,7 +149,7 @@ const Checkout = () => {
                   <h5>{item.name}</h5>
                   <p>{item.description}</p>
                   <p style={{ fontStyle: "italic", color: "#555", marginBottom: "5px" }}>
-                    {item.cartInformation} {/* Added cartInformation here */}
+                    {item.cartInformation} 
                   </p>
                   <div style={{ display: "flex", gap: "5px", marginBottom: "5px" }}>
                     {renderStars(item.rating)}
@@ -204,9 +206,10 @@ const Checkout = () => {
               Order Total: ${parseFloat(calculateTotal() + 6.99 + 760.41).toFixed(2)}
             </p>
           </div>
+          <Link to="/success">
           <button
             style={{
-              width: "200px",
+              width: "40%",
               height: "40px",
               border: "none",
               padding: "0",
@@ -223,7 +226,8 @@ const Checkout = () => {
               }}
             />
           </button>
-          <Link to="/bag">
+          </Link>
+          <Link to="/bag">  
             <button style={{ marginTop: "30px", marginLeft: "80px", padding: "7px 35px", border: "1px solid black", borderRadius: "15px" }}>
               Back
             </button>

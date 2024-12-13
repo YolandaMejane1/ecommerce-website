@@ -4,16 +4,16 @@ import Sidebar from "../components/Sidebar";
 import Bag from "../components/dashboardBag";
 import ProductCard from "../components/ProductCard";
 import { useSelector, useDispatch } from "react-redux";
-import { setFilteredProducts } from "../redux/products/productSlice";
-import { addToCart } from "../redux/cart/cartSlice";
+import { setFilteredProducts } from "../redux/products/productSlice"; //this import filters the products from the redux store and displays them in dashboard
+import { addToCart } from "../redux/cart/cartSlice"; //This import allows the user to add products from the redux store
 import SearchBar from "../components/SearchBar";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
-  const allProducts = useSelector((state) => state.product.allItems);
+  const allProducts = useSelector((state) => state.product.allItems); //fetches all products from redux store
   const filteredProducts = useSelector((state) => state.product.filteredItems);
-  const cart = useSelector((state) => state.cart.cart);
-  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.cart); //getting cart from redux store
+  const dispatch = useDispatch(); //initialising the dispatch action
   const navigate = useNavigate();
 
   const handleSearch = (query) => {
@@ -23,11 +23,11 @@ const Dashboard = () => {
       const results = allProducts.filter((product) =>
         product.name.toLowerCase().includes(query.toLowerCase())
       );
-      dispatch(setFilteredProducts(results));
+      dispatch(setFilteredProducts(results)); //searchbar shows the object on the screen alone
     }
   };
 
-  const addToCartHandler = (product) => {
+  const addToCartHandler = (product) => { //function to add products to cart
     dispatch(addToCart(product));
   };
 
@@ -41,8 +41,8 @@ const Dashboard = () => {
             <div className="col-12 col-md-8 col-lg-6">
               <SearchBar onSearch={handleSearch} resetDashboard={() => dispatch(setFilteredProducts(allProducts))} />
             </div>
-            <div className="max-w-screen-lg px-3" style={{ marginLeft: '50px'}}>
-              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-1">
+            <div className="max-w-screen-lg px-3" style={{marginLeft: '50px', marginRight: '20px',}}>
+              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-1">
                 {filteredProducts.length === 0 ? (
                   <p>No products found</p>
                 ) : (

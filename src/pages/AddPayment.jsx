@@ -7,7 +7,7 @@ import { FaCalendarAlt } from 'react-icons/fa';
 
 const AddPayment = () => {
   const navigate = useNavigate();
-  const [cardDetails, setCardDetails] = useState({
+  const [cardDetails, setCardDetails] = useState({  //This is the initial state of the card details
     cardholderName: '',
     cardNumber: '',
     expiryDate: '',
@@ -24,14 +24,14 @@ const AddPayment = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();  //To prevent form from default submission behaviour
     console.log('Card details:', cardDetails);
   };
 
   return (
     <div className="d-flex justify-content-center align-items-center min-vh-100 p-4">
-      <div className="p-4 bg-light shadow-sm rounded-3" style={{ width: '100%', maxWidth: '500px' }}>
-        <h2 className="text-start mb-4 text-dark fw-small">SELECT A CARD</h2>
+      <div className="p-4 bg-light shadow-sm rounded-3 w-full sm:w-[90%] md:w-[75%] lg:w-[500px]" style={{ width: '100%', maxWidth: '500px' }}>
+        <h2 className="text-start mb-4 text-dark fw-light">SELECT A CARD</h2>
         <div className="d-flex flex-column align-items-start w-100 mb-4">
           <div className="d-flex align-items-center mb-2">
             <img
@@ -60,20 +60,28 @@ const AddPayment = () => {
             <span className="text-muted">VISA Debit ending in 2894</span>
           </div>
         </div>
-        <h2 className="text-start mb-4 text-dark fw-medium">ADD A NEW CARD</h2>
+        <h2 className="text-start mb-4 text-dark fw-light">ADD A NEW CARD</h2>
         <form onSubmit={handleSubmit} className="w-100">
           <div className="mb-3">
             <label className="form-label text-muted" htmlFor="cardholderName">Cardholder Name</label>
-            <input
-              type="text"
-              id="cardholderName"
-              name="cardholderName"
-              value={cardDetails.cardholderName}
-              onChange={handleChange}
-              className="form-control form-control-sm text-center"
-              placeholder="John Maker"
-              required
-            />
+            <div className="position-relative">
+              <input
+                type="text"
+                id="cardholderName"
+                name="cardholderName"
+                value={cardDetails.cardholderName}
+                onChange={handleChange}
+                className="form-control form-control-sm ps-2"
+                placeholder="John Maker"
+                style={{
+                  border: '1px solid white',
+                  boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
+                  backgroundColor: 'white',
+                  textAlign: 'left',
+                }}
+                required
+              />
+            </div>
           </div>
           <div className="mb-3">
             <label className="form-label text-muted" htmlFor="cardNumber">Card Number</label>
@@ -84,8 +92,14 @@ const AddPayment = () => {
                 name="cardNumber"
                 value={cardDetails.cardNumber}
                 onChange={handleChange}
-                className="form-control form-control-sm text-center"
+                className="form-control form-control-sm ps-5"
                 placeholder="5126-5987-2214-7621"
+                style={{
+                  border: '1px solid white',
+                  boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
+                  backgroundColor: 'white',
+                  textAlign: 'left',
+                }}
                 required
               />
               <img
@@ -106,8 +120,14 @@ const AddPayment = () => {
                   name="expiryDate"
                   value={cardDetails.expiryDate}
                   onChange={handleChange}
-                  className="form-control form-control-sm text-center"
+                  className="form-control form-control-sm ps-5"
                   placeholder="MM/YYYY"
+                  style={{
+                    border: '1px solid white',
+                    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
+                    backgroundColor: 'white',
+                    textAlign: 'left',
+                  }}
                   required
                 />
                 <FaCalendarAlt
@@ -124,8 +144,14 @@ const AddPayment = () => {
                 name="cvv"
                 value={cardDetails.cvv}
                 onChange={handleChange}
-                className="form-control form-control-sm text-center"
+                className="form-control form-control-sm"
                 placeholder="123"
+                style={{
+                  border: '1px solid white',
+                  boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
+                  backgroundColor: 'white',
+                  textAlign: 'left',
+                }}
                 required
               />
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../redux/cart/cartSlice';
+import { addToCart } from '../redux/cart/cartSlice'; //takes the products that are stored in redux store to bag
 import QuantitySelector from './QuantitySelector';
 
 const ProductList = () => {

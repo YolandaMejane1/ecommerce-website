@@ -67,7 +67,7 @@ const Sidebar = () => {
             data-bs-toggle="tooltip"
             data-bs-placement="right"
           >
-            <div style={location.pathname === '/' ? activeIconStyle : null}>
+            <div style={location.pathname === '/' ? activeIconStyle : null}> 
               <img
                 src={storeIcon}
                 alt="Store"

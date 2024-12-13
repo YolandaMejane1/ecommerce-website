@@ -8,6 +8,7 @@ import Bag from "./pages/Bag";
 import Checkout from "./pages/Checkout";
 import AddPayment from "./pages/AddPayment";
 import AddAddress from "./pages/AddAddress";
+import SuccessPage from "./pages/successPage"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/add-payment" element={<AddPayment />} />
           <Route path="/add-address" element={<AddAddress />} />
+          <Route path="/success" element={<SuccessPage />} /> 
         </Routes>
       </Router>
     </Provider>

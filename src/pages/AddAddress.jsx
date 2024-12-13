@@ -4,7 +4,7 @@ import addAdressImage from '../assets/Button (7).png';
 import { IoLockClosed } from 'react-icons/io5';
 
 const AddAddress = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); //This helps with navigating between address and checkout page
   const [addressDetails, setAddressDetails] = useState({
     shippingName: '',
     streetAddress: '',
@@ -14,7 +14,7 @@ const AddAddress = () => {
     saveAsDefault: false,
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e) => {  //This function updates the address details when the input changes 
     const { name, value, type, checked } = e.target;
     setAddressDetails((prevDetails) => ({
       ...prevDetails,
@@ -22,7 +22,7 @@ const AddAddress = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => {   //form submitting function
     e.preventDefault();
     console.log('Address details:', addressDetails);
   };
@@ -41,6 +41,7 @@ const AddAddress = () => {
               onChange={handleChange}
               className="form-control form-control-sm"
               placeholder="John Maker"
+              style={{ borderTop: '1px solid white', borderLeft: '1px solid white', borderRight: '1px solid white', borderBottom: '1px solid #ced4da' }}
               required
             />
           </div>
@@ -55,6 +56,7 @@ const AddAddress = () => {
               onChange={handleChange}
               className="form-control form-control-sm"
               placeholder="123 Plae Grond Street"
+              style={{ borderTop: '1px solid white', borderLeft: '1px solid white', borderRight: '1px solid white', borderBottom: '1px solid #ced4da' }}
               required
             />
           </div>
@@ -69,6 +71,7 @@ const AddAddress = () => {
               onChange={handleChange}
               className="form-control form-control-sm"
               placeholder="Vermont"
+              style={{ borderTop: '1px solid white', borderLeft: '1px solid white', borderRight: '1px solid white', borderBottom: '1px solid #ced4da' }}
               required
             />
           </div>
@@ -83,6 +86,7 @@ const AddAddress = () => {
               onChange={handleChange}
               className="form-control form-control-sm"
               placeholder="California"
+              style={{ borderTop: '1px solid white', borderLeft: '1px solid white', borderRight: '1px solid white', borderBottom: '1px solid #ced4da' }}
               required
             />
           </div>
@@ -97,6 +101,7 @@ const AddAddress = () => {
               onChange={handleChange}
               className="form-control form-control-sm"
               placeholder="United States of America"
+              style={{ borderTop: '1px solid white', borderLeft: '1px solid white', borderRight: '1px solid white', borderBottom: '1px solid #ced4da' }}
               required
             />
           </div>
@@ -123,7 +128,7 @@ const AddAddress = () => {
         <div className="d-flex justify-content-between align-items-center mt-3">
           <button
             type="button"
-            onClick={() => navigate('/checkout')}
+            onClick={() => navigate('/checkout')} 
             className="btn btn-sm w-48 border-0"
             style={{ fontSize: '0.875rem' }}
           >

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; //this component controls the  product quantities inside cart and bag page
 import { useDispatch } from 'react-redux';
 import { incrementItem, decrementItem } from '../redux/cartSlice';
 

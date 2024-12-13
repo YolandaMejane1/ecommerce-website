@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react";   //dashboard product cards 
 import { useNavigate } from "react-router-dom";
 import bagIcon from "../assets/Button.png";
 

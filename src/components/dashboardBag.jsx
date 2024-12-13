@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import bagIcon from "../assets/Button (1).png";
 
 const Bag = () => {
-  const cart = useSelector((state) => state.cart.cart); 
+  const cart = useSelector((state) => state.cart.cart); //fetching cart items and state from redux store
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/bag");
+    navigate("/bag");   //adding items to bag
   };
 
   return (
@@ -61,7 +61,7 @@ const Bag = () => {
         <img
           src={bagIcon} 
           alt="View Bag"
-          style={{ width: "55%", height: "auto", borderRadius: "8px" }}
+          className="w-[30%] md:w-[35%] lg:w-[55%] h-auto rounded-lg"
         />
       </button>
     </div>

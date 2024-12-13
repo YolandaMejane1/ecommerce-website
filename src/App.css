@@ -1,3 +1,19 @@
 body {
   font-family: 'Cabin', sans-serif;
 }
+
+.cart-width {
+  width: 50px; 
+}
+
+@media (min-width: 576px) {
+  .cart-width {
+    width: 150px; 
+  }
+}
+
+@media (min-width: 992px) {
+  .cart-width {
+    width: 300px; 
+  }
+}

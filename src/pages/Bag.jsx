@@ -1,16 +1,16 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'; //I imported some react hooks from redux to the store
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { updateQuantity } from '../redux/cart/cartSlice';
 import Sidebar from '../components/Sidebar';
 import DashboardBag from '../components/cartBag';
 
 const Bag = () => {
-  const cart = useSelector((state) => state.cart.cart);
+  const cart = useSelector((state) => state.cart.cart); //Getting the cart state from the Redux Store
   const dispatch = useDispatch();
 
   const handleIncrease = (id) => {
-    dispatch(updateQuantity({ id, quantity: 1 }));
+    dispatch(updateQuantity({ id, quantity: 1 })); //These function increase and decrease the item quantities
   };
 
   const handleDecrease = (id) => {
@@ -21,9 +21,9 @@ const Bag = () => {
     const stars = [];
     const fullStars = Math.floor(rating);
     const halfStars = rating % 1 >= 0.5 ? 1 : 0;
-    const emptyStars = 5 - fullStars - halfStars;
+    const emptyStars = 5 - fullStars - halfStars; //functions for the star ratings to display filled and half-filled
 
-    for (let i = 1; i <= fullStars; i++) {
+    for (let i = 1; i <= fullStars; i++) { //loop to render the full stars
       stars.push(<AiFillStar key={`full-${i}`} color="#1b805d" />);
     }
     if (halfStars) {
@@ -32,11 +32,11 @@ const Bag = () => {
       );
       stars.push(<AiOutlineStar key="half-outline" color="#1b805d" />);
     }
-    for (let i = 1; i <= emptyStars; i++) {
+    for (let i = 1; i <= emptyStars; i++) {  //loop to render the empty stars
       stars.push(<AiOutlineStar key={`empty-${i}`} color="#1b805d" />);
     }
 
-    return stars.slice(0, 5);
+    return stars.slice(0, 5); //this is logic for the half-filled stars
   };
 
   return (
@@ -86,7 +86,7 @@ const Bag = () => {
                   <div className="d-flex align-items-center justify-content-between">
                     <div className="d-flex" style={{ position: 'absolute', bottom: '10px', right: '100px' }}>
                       <button
-                        onClick={() => handleDecrease(item.id)}
+                        onClick={() => handleDecrease(item.id)} //This handles decreasing and removing an item
                         style={{
                           padding: '5px 10px',
                           color: '#f44336',
@@ -118,7 +118,7 @@ const Bag = () => {
         )}
       </div>
 
-      <div className="d-none d-md-block" style={{ flexBasis: '20%' }}>
+      <div className="col-12 col-md-3" >
         <DashboardBag items={cart} />
       </div>
     </div>

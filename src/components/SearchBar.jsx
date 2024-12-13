@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; //searchbar component stores the functions that handle searching items 
 import { useNavigate } from "react-router-dom";
 
 const SearchBar = ({ onSearch, resetDashboard }) => {
@@ -13,7 +13,7 @@ const SearchBar = ({ onSearch, resetDashboard }) => {
     };
 
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize); //changes input field according to screen size
   }, []);
 
   const handleInputChange = (e) => {
@@ -24,7 +24,7 @@ const SearchBar = ({ onSearch, resetDashboard }) => {
       if (resetDashboard) resetDashboard();
       navigate("/");
     } else if (onSearch) {
-      onSearch(value.trim());
+      onSearch(value.trim()); //enables more robust search using trim function to navigate back to dashboard when search is empty
     }
   };
 
