@@ -4,10 +4,14 @@ import { IoLockClosed } from 'react-icons/io5';
 import addPaymentImage from '../assets/CTA.png';
 import cardImage from '../assets/Name=card.png';
 import { FaCalendarAlt } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import { setPayment } from '../redux/checkout/checkoutSlice';
 
 const AddPayment = () => {
   const navigate = useNavigate();
-  const [cardDetails, setCardDetails] = useState({  //This is the initial state of the card details
+  const dispatch = useDispatch();
+
+  const [cardDetails, setCardDetails] = useState({
     cardholderName: '',
     cardNumber: '',
     expiryDate: '',
@@ -24,8 +28,9 @@ const AddPayment = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();  //To prevent form from default submission behaviour
-    console.log('Card details:', cardDetails);
+    e.preventDefault();
+    dispatch(setPayment(cardDetails));
+    navigate("/checkout");
   };
 
   return (

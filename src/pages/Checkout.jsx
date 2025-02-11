@@ -1,17 +1,23 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux"; //this manages the state and dispatch actions
+import React, { useEffect } from "react"; 
+import { useSelector, useDispatch } from "react-redux";
 import { FaCcMastercard, FaGift } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { updateQuantity } from "../redux/cart/cartSlice"; //function to help with updating the cart quantity
+import { updateQuantity } from "../redux/cart/cartSlice";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import buttonImage from "../assets/Button (5).png";
+import { setAddress, setPayment } from "../redux/checkout/checkoutSlice";
 
 const Checkout = () => {
   const cart = useSelector((state) => state.cart.cart);
+  const { address, payment } = useSelector((state) => state.checkout); 
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    
+  }, []);
+
   const calculateTotal = () =>
-    cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2); //this function calculutes the total price for cart
+    cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
 
   const handleIncrease = (id) => {
     dispatch(updateQuantity({ id, quantity: 1 }));
@@ -27,7 +33,7 @@ const Checkout = () => {
     const halfStars = rating % 1 >= 0.5 ? 1 : 0;
     const emptyStars = 5 - fullStars - halfStars;
 
-    for (let i = 1; i <= fullStars; i++) { //logic and loops for filling up the rating stars
+    for (let i = 1; i <= fullStars; i++) {
       stars.push(<AiFillStar key={`full-${i}`} color="#1b805d" />);
     }
     if (halfStars) {
@@ -64,11 +70,19 @@ const Checkout = () => {
             }}
           >
             <h3>Shipping Address</h3>
-            <p>John Maker</p>
-            <p>123 Place Grond Street</p>
-            <p>Vermont, California</p>
-            <p>United States of America</p>
-            <Link to="/add-address"> 
+            {Object.keys(address).length === 0 || !address.shippingName ? (
+  <p>No address added.</p>
+) : (
+  <>
+    <p>{address.shippingName}</p>
+    <p>{address.streetAddress}</p>
+    <p>{address.city}</p>
+    <p>{address.stateProvince}</p>
+    <p>{address.country}</p>
+    <p>{address.saveAsDefault ? "Default Address" : ""}</p>
+  </>
+)}
+            <Link to="/add-address">
               <button
                 style={{
                   position: "absolute",
@@ -94,31 +108,40 @@ const Checkout = () => {
             }}
           >
             <h3>Payment Method</h3>
-            <p>
-              <FaCcMastercard /> Mastercard ending in 1252
-            </p>
-            <p>
-              <FaGift /> $53.21 gift card balance
-            </p>
-            <p>
-              <input type="checkbox" checked readOnly /> Billing address same as
-              Shipping Address
-            </p>
-            <Link to="/add-payment">  
-              <button
-                style={{
-                  position: "absolute",
-                  bottom: "-10px",
-                  right: "30px",
-                  border: "1px solid black",
-                  borderRadius: "10px",
-                  color: "black",
-                  padding: " 2px 15px",
-                }}
-              >
-                Change
-              </button>
-            </Link>
+            {payment ? (
+              <>
+                <p>Cardholder: {payment.cardholderName}</p>
+                <p>
+                  <FaCcMastercard /> Mastercard ending in {payment.cardNumber.slice(-4)}
+                </p>
+                <p>
+                  <FaGift /> ${payment.giftCardBalance} gift card balance
+                </p>
+                <p>
+                  <input type="checkbox" checked={payment.billingSameAsShipping} readOnly /> Billing address same as Shipping Address
+                </p>
+              </>
+            ) : (
+              <p>No payment method added.</p>
+            )}
+            <div>
+  <Link to="/add-payment">
+    <button
+      style={{
+        position: "absolute",
+        bottom: "-10px",
+        right: "30px",
+        border: "1px solid black",
+        borderRadius: "10px",
+        color: "black",
+        padding: "2px 15px",
+      }}
+    >
+      Change
+    </button>
+  </Link>
+</div>
+
           </div>
 
           <div>
@@ -149,7 +172,7 @@ const Checkout = () => {
                   <h5>{item.name}</h5>
                   <p>{item.description}</p>
                   <p style={{ fontStyle: "italic", color: "#555", marginBottom: "5px" }}>
-                    {item.cartInformation} 
+                    {item.cartInformation}
                   </p>
                   <div style={{ display: "flex", gap: "5px", marginBottom: "5px" }}>
                     {renderStars(item.rating)}
@@ -207,28 +230,36 @@ const Checkout = () => {
             </p>
           </div>
           <Link to="/success">
-          <button
-            style={{
-              width: "40%",
-              height: "40px",
-              border: "none",
-              padding: "0",
-              marginTop: "20px",
-            }}
-          >
-            <img
-              src={buttonImage}
-              alt="Place Order"
+            <button
               style={{
-                width: "200px",
-                height: "45px",
-                marginBottom: '20px',
+                width: "40%",
+                height: "40px",
+                border: "none",
+                padding: "0",
+                marginTop: "20px",
               }}
-            />
-          </button>
+            >
+              <img
+                src={buttonImage}
+                alt="Place Order"
+                style={{
+                  width: "200px",
+                  height: "45px",
+                  marginBottom: '20px',
+                }}
+              />
+            </button>
           </Link>
-          <Link to="/bag">  
-            <button style={{ marginTop: "30px", marginLeft: "80px", padding: "7px 35px", border: "1px solid black", borderRadius: "15px" }}>
+          <Link to="/bag">
+            <button
+              style={{
+                marginTop: "30px",
+                marginLeft: "80px",
+                padding: "7px 35px",
+                border: "1px solid black",
+                borderRadius: "15px",
+              }}
+            >
               Back
             </button>
           </Link>

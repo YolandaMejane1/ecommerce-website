@@ -3,15 +3,12 @@ import { useSelector } from 'react-redux';
 import { AiFillCheckCircle } from 'react-icons/ai';
 
 const SuccessPage = () => {
-  const cart = useSelector((state) => state.cart.cart); //fetching cart state from  redux store
-  const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0); //total price of cart displayed using this function
+  const cart = useSelector((state) => state.cart.cart); 
+  const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0); 
+  
+  const deliveryAddress = useSelector((state) => state.checkout.address) || {}; 
 
-  const deliveryAddress = {
-    name: 'John Maker',
-    street: '123 Plae Grond Stret',
-    city: 'Vermond, California',
-    country: 'United States of America',
-  };
+  console.log('Delivery Address:', JSON.stringify(deliveryAddress, null, 2));
 
   return (
     <div
@@ -96,16 +93,16 @@ const SuccessPage = () => {
             }}
           >
             <p style={{ color: '#555', fontSize: '16px', marginBottom: '10px' }}>
-              <strong>Name:</strong> {deliveryAddress.name}
+              <strong>Name:</strong> {deliveryAddress.shippingName || 'N/A'}
             </p>
             <p style={{ color: '#555', fontSize: '16px', marginBottom: '10px' }}>
-              <strong>Street Address:</strong> {deliveryAddress.street}
+              <strong>Street Address:</strong> {deliveryAddress.streetAddress || 'N/A'}
             </p>
             <p style={{ color: '#555', fontSize: '16px', marginBottom: '10px' }}>
-              <strong>City:</strong> {deliveryAddress.city}
+              <strong>City:</strong> {deliveryAddress.city || 'N/A'}
             </p>
             <p style={{ color: '#555', fontSize: '16px', marginBottom: '10px' }}>
-              <strong>Country:</strong> {deliveryAddress.country}
+              <strong>Country:</strong> {deliveryAddress.country || 'N/A'}
             </p>
           </div>
         </div>

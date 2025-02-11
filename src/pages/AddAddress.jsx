@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import addAdressImage from '../assets/Button (7).png';
 import { IoLockClosed } from 'react-icons/io5';
+import { useDispatch } from 'react-redux';
+import { setAddress } from '../redux/checkout/checkoutSlice'; 
 
 const AddAddress = () => {
-  const navigate = useNavigate(); //This helps with navigating between address and checkout page
+  const navigate = useNavigate(); // Helps with navigating between address and checkout page
+  const dispatch = useDispatch(); 
+
   const [addressDetails, setAddressDetails] = useState({
     shippingName: '',
     streetAddress: '',
@@ -14,7 +18,7 @@ const AddAddress = () => {
     saveAsDefault: false,
   });
 
-  const handleChange = (e) => {  //This function updates the address details when the input changes 
+  const handleChange = (e) => {  // Updates the address details when the input changes 
     const { name, value, type, checked } = e.target;
     setAddressDetails((prevDetails) => ({
       ...prevDetails,
@@ -22,9 +26,10 @@ const AddAddress = () => {
     }));
   };
 
-  const handleSubmit = (e) => {   //form submitting function
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Address details:', addressDetails);
+    dispatch(setAddress(addressDetails)); // Dispatches the address to the Redux store
+    navigate("/checkout"); // Navigates to the checkout page
   };
 
   return (
