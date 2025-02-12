@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';//this payment form is for payment details input and the details are then  stored in redux
 import { IoLockClosed } from 'react-icons/io5';
 import addPaymentImage from '../assets/CTA.png';
 import cardImage from '../assets/Name=card.png';
@@ -10,7 +10,7 @@ import { setPayment } from '../redux/checkout/checkoutSlice';
 const AddPayment = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+//this function serves as an input field for the payment details
   const [cardDetails, setCardDetails] = useState({
     cardholderName: '',
     cardNumber: '',
@@ -26,7 +26,7 @@ const AddPayment = () => {
       [name]: type === 'checkbox' ? checked : value,
     }));
   };
-
+//this submits the form and sends the information to the checkout page 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(setPayment(cardDetails));

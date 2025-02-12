@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
 import Bag from "../components/dashboardBag"; 
-import { useParams, useNavigate } from "react-router-dom"; //this imports hooks that handle parameters and navigation
+import { useParams, useNavigate } from "react-router-dom"; //this imports the hooks that handle parameters and navigation
 import products from "../data/products";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cart/cartActions"; 

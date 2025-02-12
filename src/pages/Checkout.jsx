@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaCcMastercard, FaGift } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { updateQuantity } from "../redux/cart/cartSlice";
+import { updateQuantity } from "../redux/cart/cartSlice"; //this checkout page handles the final steps to finalise the purchase being made in the store using redux
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import buttonImage from "../assets/Button (5).png";
 import { setAddress, setPayment } from "../redux/checkout/checkoutSlice";
